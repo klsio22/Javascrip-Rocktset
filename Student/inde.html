@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student</title>
+</head>
+
+<body>
+
+  <!-- Um formulário comum que inclui tags input -->
+  <form action="">
+    Nome: <input id="fistName" type="text" name="fistName" minlength="3" maxlength="10" /><br />
+    Sobrenome: <input id="lastName" type="text" name="lastName" maxlength="30" /><br />
+    E-mail: <input id="email" type="email" name="email" /><br />
+    Idade: <input id="age" type="number" name="age" /><br />
+
+    <label for="registration">Está matriculado ? </label>
+    <select name="registration" id="registration">
+      <option value="true">Matriculado</option>
+      <option value="false">Não Matriculado</option>
+    </select>
+
+    <br>
+    <input type="button" onclick="student()" value="Enviar Formulário" />
+
+  </form>
+
+  <h1 id="nome">
+
+  </h1>
+
+  <script>
+
+
+    function student() {
+
+      let fistName, lastName, email, registration, age
+
+      fistName = document.querySelector("input#fistName").value
+      lastName = document.querySelector("#lastName").value
+      email = document.querySelector("#email").value
+      age = Number(document.querySelector("#age").value)
+      registration = Boolean(document.querySelector("option").value)
+
+
+    class Student {
+        constructor(name, age, isSubscribed) {
+          this.name = name;
+          this.age = age;
+          this.isSubscribed = isSubscribed;
+        }
+
+        toString() {
+          return `Nome do aluno(a) é ${this.name} ele tem ${this.age} 
+           anos de idade  `;
+        }
+
+       registration() {
+          if (this.isSubscribed === true) return "Matriculado(a)";
+          return "Não maticulado(a)";
+        }
+      }
+
+      let student = new Student(fistName + " " + lastName, age, registration);
+      console.log(student.toString());
+      console.log(student.registration());  
+
+    }
+
+
+  </script>
+
+
+
+</body>
+
+</html>
